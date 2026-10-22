@@ -6,12 +6,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-skylink-corporate-secret-key-2026-prod-ready')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,*', cast=lambda v: [s.strip() for s in v.split(',') if s.strip()])
-CSRF_TRUSTED_ORIGINS = config(
-    'CSRF_TRUSTED_ORIGINS',
-    default='https://*.ngrok-free.dev,https://*.ngrok-free.app,https://*.ngrok.io,https://*.trycloudflare.com,http://127.0.0.1:8000,http://localhost:8000',
-    cast=lambda v: [s.strip() for s in v.split(',') if s.strip()]
-)
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://anywhere-retired-throat.ngrok-free.dev',
+    'https://*.ngrok-free.dev',
+    'https://*.ngrok-free.app',
+    'https://*.ngrok.io',
+    'https://*.trycloudflare.com',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
