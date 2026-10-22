@@ -1,0 +1,140 @@
+{% load static %}
+<footer class="bg-[#0A1230] text-gray-300 pt-16 pb-8 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gray-800">
+      
+      <!-- Column 1: Company Profile -->
+      <div class="space-y-4">
+        <div class="bg-white/95 p-3 rounded-lg inline-block">
+          <img src="{% static 'images/logo.svg' %}" alt="Skylink Group" class="h-10 w-auto">
+        </div>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Skylink Group of Companies unites premier international and domestic manpower recruitment, state-of-the-art technical vocational training, and comprehensive residential & commercial maintenance solutions.
+        </p>
+        <div class="text-xs space-y-1 text-gray-400 pt-1">
+          <p><span class="text-gray-200 font-semibold">Managing Director:</span> {{ md_name }}</p>
+          <p><span class="text-gray-200 font-semibold">CIN:</span> <span class="font-mono text-gray-300">{{ cin }}</span></p>
+          <p class="text-[#C9A227] font-semibold tracking-wide">"ONE VISION | MULTIPLE OPPORTUNITIES | SKILLED INDIA"</p>
+        </div>
+      </div>
+
+      <!-- Column 2: Our Three Divisions -->
+      <div>
+        <h4 class="text-white text-base font-bold mb-4 tracking-wider uppercase border-l-4 border-[#C9A227] pl-3">
+          Our Divisions
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          <li>
+            <a href="{% url 'staffing:home' %}" class="text-gray-300 hover:text-white flex items-center transition">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span>
+              Skylink Staffing Solutions
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'academy:home' %}" class="text-gray-300 hover:text-white flex items-center transition">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-2"></span>
+              Skylink Skill Academy
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'maintenance:home' %}" class="text-gray-300 hover:text-white flex items-center transition">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></span>
+              Skylink Maintenance Services
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'core:about' %}" class="text-gray-300 hover:text-white flex items-center transition">
+              <span class="w-1.5 h-1.5 rounded-full bg-gray-500 mr-2"></span>
+              About Skylink Group
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'core:services' %}" class="text-gray-300 hover:text-white flex items-center transition">
+              <span class="w-1.5 h-1.5 rounded-full bg-gray-500 mr-2"></span>
+              All Corporate Services
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Quick Action & Forms -->
+      <div>
+        <h4 class="text-white text-base font-bold mb-4 tracking-wider uppercase border-l-4 border-[#16A34A] pl-3">
+          Online Services
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          <li>
+            <a href="{% url 'staffing:employer_enquiry' %}" class="text-gray-300 hover:text-white transition">
+              Hire Manpower (Employers)
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'staffing:job_application' %}" class="text-gray-300 hover:text-white transition">
+              Apply for Jobs (Candidates)
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'academy:course_admission' %}" class="text-gray-300 hover:text-white transition">
+              Skill Course Admission
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'maintenance:service_request' %}" class="text-gray-300 hover:text-white transition">
+              Book Maintenance Service
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'core:contact' %}" class="text-gray-300 hover:text-white transition">
+              General Enquiry
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'submissions:admin_login' %}" class="text-amber-400 hover:text-amber-300 transition text-xs flex items-center pt-1">
+              <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              Authorized Staff Login
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact & Locations -->
+      <div>
+        <h4 class="text-white text-base font-bold mb-4 tracking-wider uppercase border-l-4 border-[#D97706] pl-3">
+          Official Contact
+        </h4>
+        <div class="space-y-3 text-xs text-gray-300">
+          <div>
+            <p class="font-bold text-white mb-0.5">Head Office:</p>
+            <p class="text-gray-400">{{ head_office }}</p>
+          </div>
+          <div>
+            <p class="font-bold text-white mb-0.5">Operational Office:</p>
+            <p class="text-gray-400">{{ business_address }}</p>
+          </div>
+          <div class="pt-1">
+            <p class="font-bold text-white mb-0.5">Contact Numbers:</p>
+            <p><a href="tel:{{ business_phone1 }}" class="hover:text-amber-400 transition">{{ business_phone1 }}</a></p>
+            <p><a href="tel:{{ business_phone2 }}" class="hover:text-amber-400 transition">{{ business_phone2 }}</a></p>
+          </div>
+          <div>
+            <p class="font-bold text-white mb-0.5">Email:</p>
+            <p><a href="mailto:{{ business_email }}" class="hover:text-amber-400 transition">{{ business_email }}</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+      <p>© {% now "Y" %} Skylink Staffing Solutions Pvt. Ltd. & Skylink Group of Companies. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="{% url 'core:privacy_policy' %}" class="hover:text-gray-300 transition">Privacy Policy</a>
+        <a href="{% url 'core:terms' %}" class="hover:text-gray-300 transition">Terms & Conditions</a>
+        <a href="{% url 'sitemap' %}" class="hover:text-gray-300 transition">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

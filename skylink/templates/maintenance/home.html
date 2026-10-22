@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skylink Maintenance Services — Electrical, AC/HVAC, Plumbing & Facility Care{% endblock %}
+
+{% block content %}
+<!-- Maintenance Hero -->
+<div class="bg-gradient-to-r from-[#78350F] via-[#B45309] to-[#D97706] text-white py-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 space-y-4">
+        <div class="inline-flex items-center space-x-2 bg-amber-400/20 border border-amber-300/30 rounded-full px-4 py-1 text-xs font-bold uppercase text-amber-200">
+          Property & Facility Maintenance Division
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          Skylink Maintenance Services
+        </h1>
+        <p class="text-yellow-200 font-bold tracking-widest uppercase text-sm sm:text-base">
+          Your Property | Our Responsibility • One Call — Multiple Solutions
+        </p>
+        <p class="text-amber-100 text-sm sm:text-base max-w-2xl leading-relaxed">
+          Reliable residential, commercial, and institutional facility care. Rapid-response certified technicians for electrical outages, AC/HVAC servicing, plumbing emergencies, and complete annual maintenance contracts (AMC).
+        </p>
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="{% url 'maintenance:service_request' %}" class="px-6 py-3.5 bg-white text-[#78350F] hover:bg-amber-50 font-black text-xs uppercase tracking-wider rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+            Book a Service Request
+          </a>
+          <a href="tel:{{ business_phone1 }}" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition">
+            Emergency Breakdown Hotline
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-xs space-y-3">
+          <p class="font-bold text-yellow-300 uppercase tracking-wider">Service Guarantee</p>
+          <p class="text-amber-100">Service Coverage:</p>
+          <p class="font-bold text-white">Residential • Commercial • Institutional</p>
+          <p class="text-amber-100">Trained Technicians • Quality Service • Timely Response • Affordable Pricing</p>
+          <p class="text-amber-100">Hotline: <strong class="text-white">{{ business_phone1 }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services Grid -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs font-bold text-[#D97706] uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full">Specialized Trades</span>
+      <h2 class="text-3xl font-extrabold text-navy mt-2">Comprehensive Property Care Services</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">⚡</div>
+          <h3 class="text-xl font-bold text-navy mb-2">Electrical Services</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Complete electrical troubleshooting, short circuit clearance, distribution board repairs, rewiring, changeover installation, and lighting upgrades.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Book Electrical Work
+        </a>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">❄️</div>
+          <h3 class="text-xl font-bold text-navy mb-2">AC & HVAC Services</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            High-pressure jet pump cleaning, gas charging (R32/R410A), compressor repairs, split & window installation, and duct cleaning for optimal cooling efficiency.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Book AC Service
+        </a>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">🔧</div>
+          <h3 class="text-xl font-bold text-navy mb-2">Plumbing Services</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Concealed pipe leak detection, water pump installation, drainage unclogging, bathroom sanitary fittings, and overhead water tank cleanings.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Book Plumber
+        </a>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">🔨</div>
+          <h3 class="text-xl font-bold text-navy mb-2">Handyman & General Repairs</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Door and window hardware fixes, minor carpentry, wall masonry touch-ups, tile replacement, silicone sealing, and curtain rod/bracket mountings.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Book Handyman
+        </a>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">🏢</div>
+          <h3 class="text-xl font-bold text-navy mb-2">Facility Management & AMC</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Turnkey annual contracts for corporate complexes, shopping centres, schools, and hospitals with dedicated maintenance supervisors and spare part management.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Request AMC Proposal
+        </a>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 hover:border-amber-300 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center font-black text-lg mb-4">🛡️</div>
+          <h3 class="text-xl font-bold text-navy mb-2">Renovation & Turnkey Repairs</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Comprehensive property refurbishment before tenant handover, pre-monsoon waterproofing inspections, and full apartment electrical rewiring.
+          </p>
+        </div>
+        <a href="{% url 'maintenance:service_request' %}" class="block text-center py-2.5 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+          Get Turnkey Quote
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

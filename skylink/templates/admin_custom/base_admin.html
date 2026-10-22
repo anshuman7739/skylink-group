@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Skylink Group — Admin Dashboard{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
+  <link rel="stylesheet" href="{% static 'css/skylink.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-slate-100 text-gray-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Top Admin Navbar -->
+  <header class="bg-[#0F1A44] text-white border-b border-gray-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand Link -->
+        <div class="flex items-center space-x-4">
+          <a href="{% url 'submissions:dashboard' %}" class="flex items-center space-x-3">
+            <div class="bg-white p-1 rounded-md">
+              <img src="{% static 'images/logo.svg' %}" alt="Skylink Logo" class="h-7 w-auto">
+            </div>
+            <span class="font-black text-sm tracking-wider uppercase text-amber-400 hidden sm:inline">Operations Hub</span>
+          </a>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex items-center space-x-1 sm:space-x-3 text-xs font-semibold">
+          <a href="{% url 'submissions:dashboard' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'dashboard' %}bg-white/10 text-white{% else %}text-gray-300 hover:text-white hover:bg-white/5{% endif %} transition">
+            Submissions
+          </a>
+          <a href="{% url 'submissions:settings' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'settings' %}bg-white/10 text-white{% else %}text-gray-300 hover:text-white hover:bg-white/5{% endif %} transition">
+            System Config
+          </a>
+          <a href="/admin/" target="_blank" class="px-3 py-2 rounded-lg text-amber-300 hover:text-amber-200 hover:bg-white/5 transition flex items-center">
+            Django Admin ↗
+          </a>
+          <a href="{% url 'core:home' %}" target="_blank" class="px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition flex items-center">
+            View Website ↗
+          </a>
+        </nav>
+
+        <!-- User Info & Logout -->
+        <div class="flex items-center space-x-4 text-xs">
+          <span class="text-gray-400 hidden md:inline">Logged in as <strong class="text-white">{{ request.user.username }}</strong></span>
+          <a href="{% url 'submissions:admin_logout' %}" class="px-3 py-1.5 bg-rose-600/80 hover:bg-rose-600 text-white font-bold rounded-lg transition">
+            Logout
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  {% if messages %}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 space-y-2">
+    {% for message in messages %}
+    <div class="p-4 rounded-xl text-xs font-semibold flex items-center justify-between {% if message.tags == 'success' %}bg-emerald-50 text-emerald-800 border border-emerald-200{% elif message.tags == 'error' %}bg-rose-50 text-rose-800 border border-rose-200{% else %}bg-blue-50 text-blue-800 border border-blue-200{% endif %}">
+      <span>{{ message }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Main Content Area -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 py-4 text-center text-xs text-gray-500">
+    Skylink Group of Companies • Internal Operations & Lead Management System • Confirmed Database Connected
+  </footer>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

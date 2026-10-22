@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}500 — Server Error | Skylink Group{% endblock %}
+
+{% block content %}
+<div class="py-24 bg-slate-50 min-h-[60vh] flex items-center">
+  <div class="max-w-xl mx-auto px-4 text-center space-y-6">
+    <div class="text-7xl font-black text-rose-500/20 font-mono">500</div>
+    <h1 class="text-3xl font-extrabold text-navy">Internal Server Error</h1>
+    <p class="text-sm text-gray-600 max-w-md mx-auto">
+      Our technical team has been notified of this issue. Please try again shortly or contact our emergency helpdesk.
+    </p>
+    <div class="pt-4 flex justify-center gap-4">
+      <a href="{% url 'core:home' %}" class="px-6 py-3 bg-navy text-white text-xs font-bold uppercase rounded-xl hover:bg-navy-dark transition">
+        Return Home
+      </a>
+      <a href="tel:{{ business_phone1 }}" class="px-6 py-3 bg-emerald-600 text-white text-xs font-bold uppercase rounded-xl hover:bg-emerald-700 transition">
+        Call Support
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}404 — Page Not Found | Skylink Group{% endblock %}
+
+{% block content %}
+<div class="py-24 bg-slate-50 min-h-[60vh] flex items-center">
+  <div class="max-w-xl mx-auto px-4 text-center space-y-6">
+    <div class="text-7xl font-black text-navy/20 font-mono">404</div>
+    <h1 class="text-3xl font-extrabold text-navy">Page Not Found</h1>
+    <p class="text-sm text-gray-600 max-w-md mx-auto">
+      The requested page could not be located. It may have moved or been updated.
+    </p>
+    <div class="pt-4 flex justify-center gap-4">
+      <a href="{% url 'core:home' %}" class="px-6 py-3 bg-navy text-white text-xs font-bold uppercase rounded-xl hover:bg-navy-dark transition">
+        Return Home
+      </a>
+      <a href="{% url 'core:contact' %}" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 text-xs font-bold uppercase rounded-xl hover:bg-gray-50 transition">
+        Contact Helpdesk
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

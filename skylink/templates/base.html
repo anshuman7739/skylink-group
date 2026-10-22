@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>{% block title %}Skylink Group of Companies — Staffing, Skill Academy & Maintenance{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Skylink Group of Companies: Skylink Staffing Solutions Pvt. Ltd., Skylink Skill Academy, and Skylink Maintenance Services. Manpower recruitment, vocational training, and facility maintenance.{% endblock %}">
+  <meta name="keywords" content="Skylink Group, Skylink Staffing Solutions, Skylink Skill Academy, Skylink Maintenance Services, manpower recruitment Gopalganj Bihar, Gulf recruitment, technical training, HVAC maintenance, electrician training">
+  <link rel="canonical" href="https://skylinkstaffingsolutions.com{{ request.path }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skylinkstaffingsolutions.com{{ request.path }}">
+  <meta property="og:title" content="{% block og_title %}Skylink Group of Companies — Your Growth, Our Commitment{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Unifying Manpower Recruitment, Technical Skill Training, and Commercial Maintenance Services.{% endblock %}">
+  <meta property="og:image" content="https://skylinkstaffingsolutions.com{% static 'images/branding/skylink_banner.jpg' %}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
+
+  <!-- Tailwind CSS CDN with Custom Brand Theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#1B2B6B',
+              dark: '#0F1A44',
+              deep: '#0A1230',
+              light: '#28419E',
+            },
+            gold: {
+              DEFAULT: '#C9A227',
+              light: '#E0BA42',
+              dark: '#A68218',
+            },
+            academy: {
+              DEFAULT: '#16A34A',
+              dark: '#15803D',
+              light: '#22C55E',
+            },
+            maintenance: {
+              DEFAULT: '#D97706',
+              dark: '#B45309',
+              light: '#F59E0B',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            heading: ['Montserrat', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/skylink.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-white text-gray-800 flex flex-col min-h-screen antialiased selection:bg-navy selection:text-white">
+
+  <!-- Navbar -->
+  {% include 'navbar.html' %}
+
+  <!-- Flash Messages / Toast Alerts -->
+  {% if messages %}
+  <div class="fixed top-24 right-4 z-50 max-w-md w-full space-y-3 px-4 pointer-events-none">
+    {% for message in messages %}
+    <div class="auto-dismiss-alert pointer-events-auto p-4 rounded-xl shadow-xl border flex items-start space-x-3 transition-all transform duration-300 {% if message.tags == 'success' %}bg-emerald-50 border-emerald-200 text-emerald-900{% elif message.tags == 'error' %}bg-rose-50 border-rose-200 text-rose-900{% else %}bg-blue-50 border-blue-200 text-blue-900{% endif %}">
+      <div class="flex-shrink-0 mt-0.5">
+        {% if message.tags == 'success' %}
+        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        {% elif message.tags == 'error' %}
+        <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        {% else %}
+        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        {% endif %}
+      </div>
+      <div class="text-sm font-medium flex-1">
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Main Content Block -->
+  <main class="flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  {% include 'footer.html' %}
+
+  <!-- Floating Quick Connect Button (WhatsApp / Call Trigger) -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-3">
+    <a href="https://wa.me/919045585073?text=Hello%20Skylink%20Group,%20I%20have%20an%20enquiry" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#1EBE5D] text-white p-3.5 rounded-full shadow-lg hover:shadow-2xl transition transform hover:scale-110 flex items-center justify-center group" aria-label="Chat on WhatsApp">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.18-.553-1.614-.665-2.695-2.28-2.775-2.385-.08-.105-.658-.877-.658-1.674 0-.796.417-1.189.566-1.353.144-.16.32-.2.43-.2.11 0 .219.002.315.006.101.005.236-.039.369.28.138.334.475 1.155.516 1.24.041.085.07.185.013.298-.056.113-.085.184-.17.283-.085.099-.178.221-.255.297-.085.085-.175.178-.075.35.1.171.444.733.953 1.187.656.584 1.21.764 1.38.85.171.085.272.071.374-.045.102-.115.437-.508.553-.682.117-.174.234-.145.39-.087.157.058.995.469 1.166.555.171.085.286.128.328.2.042.071.042.414-.102.819z"/>
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2 22l5.187-1.318A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.606 0-3.11-.47-4.382-1.282l-.314-.187-3.255.828.847-3.094-.205-.333A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

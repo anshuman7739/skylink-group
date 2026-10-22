@@ -1,0 +1,387 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skylink Group of Companies — Manpower, Skill Training & Maintenance Services{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-[#0F1A44] via-[#1B2B6B] to-[#0A1230] text-white py-20 lg:py-28 overflow-hidden">
+  <!-- Subtle geometric accent -->
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C9A227_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+  <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-[#0EA5E9]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Hero Left: Text & Pitch -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-[#C9A227] animate-pulse"></span>
+          <span class="text-xs font-semibold tracking-wider uppercase text-amber-300">Corporate Portal • Registered Entity</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          Your Growth, <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A227] via-amber-200 to-yellow-400">
+            Our Commitment.
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-gray-200 leading-relaxed max-w-2xl">
+          <strong class="text-white font-semibold">SKYLINK GROUP OF COMPANIES</strong> is a premier multi-sector enterprise uniting overseas & domestic manpower recruitment, practical vocational skill training, and turnkey residential & commercial maintenance.
+        </p>
+
+        <p class="text-xs uppercase tracking-widest text-gray-400 font-semibold border-l-2 border-[#C9A227] pl-3">
+          One Vision | Multiple Opportunities | Skilled India | Stronger Tomorrow
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="{% url 'staffing:employer_enquiry' %}" class="px-6 py-3.5 bg-[#C9A227] hover:bg-[#B58E1B] text-navy-dark font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center">
+            Hire Skilled Workforce
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="{% url 'academy:course_admission' %}" class="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center">
+            Join Skill Academy
+          </a>
+          <a href="{% url 'maintenance:service_request' %}" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm uppercase tracking-wider rounded-xl backdrop-blur-sm transition flex items-center">
+            Book Maintenance
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-xs text-gray-300">
+          <div>
+            <div class="text-[#C9A227] font-bold text-lg">Govt CIN</div>
+            <div class="text-[11px] text-gray-400 font-mono">{{ cin }}</div>
+          </div>
+          <div>
+            <div class="text-emerald-400 font-bold text-lg">3 Divisions</div>
+            <div class="text-[11px] text-gray-400">Recruitment • Academy • AMC</div>
+          </div>
+          <div>
+            <div class="text-amber-400 font-bold text-lg">Gopalganj, Bihar</div>
+            <div class="text-[11px] text-gray-400">Pan-India & Overseas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right: Verified Artwork Display -->
+      <div class="lg:col-span-5 relative">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 shadow-2xl backdrop-blur-md">
+          <img src="{% static 'images/branding/skylink_banner.jpg' %}" alt="Skylink Group Artwork" class="w-full h-auto rounded-xl shadow-md object-cover hover:scale-[1.01] transition duration-300">
+          <div class="mt-3 flex items-center justify-between text-[11px] text-gray-300 px-1">
+            <span class="flex items-center text-emerald-400 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 inline-block"></span>
+              Verified Artwork & Branding
+            </span>
+            <span class="text-gray-400">Er. Mahtab Alam (Managing Director)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- The Three Distinct Business Divisions -->
+<section class="py-20 bg-slate-50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold text-[#1B2B6B] tracking-widest uppercase bg-blue-100/70 px-3.5 py-1.5 rounded-full inline-block mb-3">
+        Three Pillars of Excellence
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-dark tracking-tight">
+        Comprehensive Solutions Under One Corporate Banner
+      </h2>
+      <p class="mt-4 text-gray-600 text-base leading-relaxed">
+        Whether you need an overseas certified workforce, career-defining vocational certifications, or round-the-clock property maintenance, Skylink Group delivers proven reliability.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Staffing Solutions -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border border-gray-100 division-card-staffing">
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-5">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-[#1B2B6B] uppercase tracking-wider">
+              Manpower Division
+            </span>
+            <span class="text-xs font-semibold text-rose-600">Pvt. Ltd. Registered</span>
+          </div>
+          <h3 class="text-2xl font-black text-[#1B2B6B] mb-1">
+            Skylink Staffing Solutions
+          </h3>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            Right People | Right Skills | Better Future
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            End-to-end manpower recruitment for Gulf, overseas & domestic clients. Supplying certified electricians, HVAC techs, welders, medical staff, civil workers, and corporate managers.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-gray-700 mb-6">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#1B2B6B] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Gulf Manpower Recruitment & Overseas Placement</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#1B2B6B] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Skilled, Semi-Skilled & General Staffing</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#1B2B6B] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Recruitment Documentation, Medical & Compliance</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#1B2B6B] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>End-to-End Trade Testing & Interview Management</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-blue-50/50 border-t border-gray-100 flex items-center justify-between">
+          <a href="{% url 'staffing:home' %}" class="text-xs font-bold text-[#1B2B6B] hover:text-blue-900 flex items-center">
+            Explore Division
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="{% url 'staffing:employer_enquiry' %}" class="px-4 py-2 bg-[#1B2B6B] text-white text-xs font-bold uppercase rounded-lg hover:bg-navy-dark transition">
+            Hire Talent
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Skill Academy -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border border-gray-100 division-card-academy">
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-5">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-[#16A34A] uppercase tracking-wider">
+              Training Academy
+            </span>
+            <span class="text-xs font-semibold text-emerald-700">Hands-on Practical Labs</span>
+          </div>
+          <h3 class="text-2xl font-black text-[#16A34A] mb-1">
+            Skylink Skill Academy
+          </h3>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            Learn | Build | Grow
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            Industry-oriented vocational education with live electrical test benches, HVAC diagnostic bays, plumbing workshops, and safety certification to make candidates job-ready.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-gray-700 mb-6">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#16A34A] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Electrician & Control Panel Training</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#16A34A] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>AC & Refrigeration Mechanic (Split/Chiller)</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#16A34A] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Plumbing, Pipe Fitting & Sanitary Works</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#16A34A] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>HSE Industrial Safety & Job Placement Assistance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-green-50/50 border-t border-gray-100 flex items-center justify-between">
+          <a href="{% url 'academy:home' %}" class="text-xs font-bold text-[#16A34A] hover:text-green-900 flex items-center">
+            View Courses
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="{% url 'academy:course_admission' %}" class="px-4 py-2 bg-[#16A34A] text-white text-xs font-bold uppercase rounded-lg hover:bg-emerald-700 transition">
+            Apply Admission
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Maintenance Services -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden border border-gray-100 division-card-maintenance">
+        <div class="p-8">
+          <div class="flex items-center justify-between mb-5">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-[#D97706] uppercase tracking-wider">
+              Facility Services
+            </span>
+            <span class="text-xs font-semibold text-amber-700">One Call • All Solutions</span>
+          </div>
+          <h3 class="text-2xl font-black text-[#D97706] mb-1">
+            Skylink Maintenance Services
+          </h3>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">
+            Your Property | Our Responsibility
+          </p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            Residential, commercial, and institutional facility care. Rapid technician response for electrical breakdown, HVAC servicing, plumbing emergencies, and complete facility management.
+          </p>
+
+          <div class="space-y-2.5 text-xs text-gray-700 mb-6">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#D97706] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Electrical Maintenance & DB Box Repairs</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#D97706] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>AC & HVAC Servicing, Deep Cleaning & Gas Refill</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#D97706] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Plumbing, Water Pumps & Drainage Unclogging</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-[#D97706] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Annual Maintenance Contracts (AMC) for Offices & Flats</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-amber-50/50 border-t border-gray-100 flex items-center justify-between">
+          <a href="{% url 'maintenance:home' %}" class="text-xs font-bold text-[#D97706] hover:text-amber-900 flex items-center">
+            Service Details
+            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a href="{% url 'maintenance:service_request' %}" class="px-4 py-2 bg-[#D97706] text-white text-xs font-bold uppercase rounded-lg hover:bg-amber-700 transition">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Leadership & Verified Entity Section -->
+<section class="py-20 bg-white border-t border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-5">
+        <div class="relative bg-slate-100 rounded-3xl p-6 shadow-md border border-gray-200">
+          <img src="{% static 'images/branding/skylink_card.jpg' %}" alt="Managing Director Card" class="w-full h-auto rounded-2xl shadow-sm object-cover">
+          <div class="mt-4 p-4 bg-navy-dark text-white rounded-xl text-xs space-y-1">
+            <p class="font-bold text-[#C9A227] text-sm">{{ md_name }}</p>
+            <p class="text-gray-300">{{ md_title }} — Skylink Group</p>
+            <p class="text-gray-400 font-mono">CIN: {{ cin }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <span class="text-xs font-bold text-[#C9A227] tracking-widest uppercase bg-amber-50 border border-amber-200 px-3.5 py-1.5 rounded-full inline-block">
+          Leadership & Commitment
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Pioneering Skilled Employment and Infrastructure Maintenance from Bihar to the World
+        </h2>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+          Under the visionary leadership of <strong>{{ md_name }}</strong>, Skylink Group of Companies was founded to bridge the gap between rural technical talent and global industrial opportunities.
+        </p>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+          Our integrated ecosystem trains youth in high-demand technical trades at <span class="text-[#16A34A] font-semibold">Skylink Skill Academy</span>, deploys them with top overseas and pan-India employers via <span class="text-[#1B2B6B] font-semibold">Skylink Staffing Solutions</span>, and provides top-tier local service excellence through <span class="text-[#D97706] font-semibold">Skylink Maintenance Services</span>.
+        </p>
+
+        <!-- Values Pillar from Card artwork -->
+        <div class="grid grid-cols-3 gap-4 pt-4">
+          <div class="p-4 bg-slate-50 rounded-xl border border-gray-100 text-center">
+            <span class="block w-2.5 h-2.5 rounded-full bg-rose-600 mx-auto mb-2"></span>
+            <h4 class="font-bold text-navy-dark text-sm">Service</h4>
+            <p class="text-[11px] text-gray-500 mt-1">Prompt, dedicated & transparent</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-gray-100 text-center">
+            <span class="block w-2.5 h-2.5 rounded-full bg-rose-600 mx-auto mb-2"></span>
+            <h4 class="font-bold text-navy-dark text-sm">Security</h4>
+            <p class="text-[11px] text-gray-500 mt-1">Legal compliance & safe workers</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-gray-100 text-center">
+            <span class="block w-2.5 h-2.5 rounded-full bg-rose-600 mx-auto mb-2"></span>
+            <h4 class="font-bold text-navy-dark text-sm">Satisfaction</h4>
+            <p class="text-[11px] text-gray-500 mt-1">Client and student success</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-dark tracking-tight">
+        Why Corporates, Students & Property Owners Trust Skylink
+      </h2>
+      <p class="mt-4 text-gray-600 text-sm sm:text-base">
+        A legally compliant, ethically driven corporate structure that delivers measurable results.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="w-12 h-12 bg-blue-100 text-[#1B2B6B] rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h4 class="font-bold text-navy text-base mb-2">Full Regulatory Compliance</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Registered under Ministry of Corporate Affairs (CIN: {{ cin }}). Transparent contracts, verified documentation and strict zero-hidden-fee policies.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="w-12 h-12 bg-green-100 text-[#16A34A] rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        </div>
+        <h4 class="font-bold text-navy text-base mb-2">Rigorous Trade Testing</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Every candidate undergoes intensive practical testing at our own testing facility before being presented to domestic or overseas employers.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="w-12 h-12 bg-amber-100 text-[#D97706] rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h4 class="font-bold text-navy text-base mb-2">24/7 Service Dispatch</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Our maintenance desk operates continuous helplines for urgent electrical, refrigeration, and plumbing emergencies across residential & commercial clients.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h4 class="font-bold text-navy text-base mb-2">Global Industry Footprint</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Strong recruitment relationships with premier clients in the UAE, Saudi Arabia, Qatar, Oman, and key Indian industrial corridors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="py-16 bg-[#0F1A44] text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+      Ready to Partner with Skylink Group?
+    </h2>
+    <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
+      Submit your requirements online and receive a formal corporate proposal, candidate shortlists, or service quotation within 24 hours.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 pt-4">
+      <a href="{% url 'staffing:employer_enquiry' %}" class="px-6 py-3.5 bg-[#C9A227] hover:bg-[#B58E1B] text-navy-dark font-extrabold text-sm uppercase rounded-xl transition shadow-lg">
+        Employer Recruitment Enquiry
+      </a>
+      <a href="{% url 'core:contact' %}" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm uppercase rounded-xl transition">
+        General Corporate Enquiry
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

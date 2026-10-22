@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Privacy Policy — Skylink Group of Companies{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-[#0F1A44] to-[#1B2B6B] text-white py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl sm:text-4xl font-black">Privacy Policy</h1>
+    <p class="text-gray-300 text-sm mt-2">Last updated: October 2026</p>
+  </div>
+</div>
+
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-slate text-sm sm:text-base leading-relaxed text-gray-700 space-y-6">
+    <p>
+      At <strong>Skylink Group of Companies</strong> (incorporating Skylink Staffing Solutions Pvt. Ltd., Skylink Skill Academy, and Skylink Maintenance Services), we respect your privacy and are committed to safeguarding personal information collected via our website and application forms.
+    </p>
+
+    <h3 class="text-lg font-bold text-navy mt-6">1. Information We Collect</h3>
+    <p>
+      When you complete public forms on our website (including General Enquiries, Employer Staffing Enquiries, Job Applications, Skill Academy Admissions, and Maintenance Requests), we may collect:
+    </p>
+    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+      <li>Contact details: Name, phone number, email address, city/state.</li>
+      <li>Employment/Candidate data: Desired trade role, experience, resume attachments, preferred location.</li>
+      <li>Employer data: Company name, worker headcount requirements, site location, timeline.</li>
+      <li>Student data: Course choices, batch preference, education background.</li>
+      <li>Property data: Address, service category, problem descriptions, and optional damage photos.</li>
+    </ul>
+
+    <h3 class="text-lg font-bold text-navy mt-6">2. How We Use Your Information</h3>
+    <p>
+      Your data is processed strictly for:
+    </p>
+    <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+      <li>Contacting you regarding your submitted lead or service ticket.</li>
+      <li>Evaluating candidate profiles against active client mandates.</li>
+      <li>Coordinating batch admissions, practical lab schedules, and course onboarding.</li>
+      <li>Dispatching certified technicians to complete requested property maintenance.</li>
+      <li>Generating audit logs and tracking reference numbers within our secure MySQL database.</li>
+    </ul>
+
+    <h3 class="text-lg font-bold text-navy mt-6">3. Data Security & Storage</h3>
+    <p>
+      We implement industry-standard database encryption, Django CSRF protection, secure session controls, and strict role-based access for our administrators. Uploaded resumes and photos are stored in restricted media directories accessible only by authorized human resource staff.
+    </p>
+
+    <h3 class="text-lg font-bold text-navy mt-6">4. Contacting Our Data Protection Officer</h3>
+    <p>
+      If you wish to review, update, or request the deletion of your submitted records, please contact us at <a href="mailto:{{ business_email }}" class="text-blue-600 hover:underline">{{ business_email }}</a> or write to our Head Office at Skylink Tower, Turkha, Nahar Road, Gopalganj, Bihar - 841428.
+    </p>
+  </div>
+</section>
+{% endblock %}

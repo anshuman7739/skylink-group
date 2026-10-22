@@ -1,0 +1,64 @@
+/* Skylink Corporate Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --color-navy: #1B2B6B;
+  --color-navy-dark: #0F1A44;
+  --color-gold: #C9A227;
+  --color-gold-light: #E0BA42;
+  --color-academy: #16A34A;
+  --color-academy-dark: #15803D;
+  --color-maintenance: #D97706;
+  --color-maintenance-dark: #B45309;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1E293B;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Glassmorphism & Header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Division Brand Cards */
+.division-card-staffing {
+  border-top: 4px solid #1B2B6B;
+}
+.division-card-academy {
+  border-top: 4px solid #16A34A;
+}
+.division-card-maintenance {
+  border-top: 4px solid #D97706;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Form focus glow */
+.form-input:focus {
+  outline: none;
+  border-color: #1B2B6B;
+  box-shadow: 0 0 0 3px rgba(27, 43, 107, 0.15);
+}

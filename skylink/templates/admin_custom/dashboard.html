@@ -1,0 +1,216 @@
+{% extends 'admin_custom/base_admin.html' %}
+{% load static %}
+
+{% block title %}Dashboard Overview — Skylink Group Operations{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+  
+  <!-- Page Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-black text-navy">Corporate Submissions Dashboard</h1>
+      <p class="text-xs text-gray-500 mt-1">Real-time database pipeline for enquiries, job applications, course admissions, and service orders.</p>
+    </div>
+    <div>
+      <a href="{% url 'submissions:export' %}?q={{ query }}&division={{ division_filter }}&status={{ status_filter }}" class="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-sm transition">
+        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Export Filtered Records (CSV)
+      </a>
+    </div>
+  </div>
+
+  <!-- KPI Cards Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
+      <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Total Leads</p>
+      <p class="text-2xl font-black text-navy mt-1">{{ stats.total }}</p>
+    </div>
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-blue-200 bg-blue-50/20">
+      <p class="text-[11px] font-bold text-blue-600 uppercase tracking-wider">New</p>
+      <p class="text-2xl font-black text-blue-700 mt-1">{{ stats.new }}</p>
+    </div>
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-200 bg-amber-50/20">
+      <p class="text-[11px] font-bold text-amber-600 uppercase tracking-wider">Contacted</p>
+      <p class="text-2xl font-black text-amber-700 mt-1">{{ stats.contacted }}</p>
+    </div>
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-purple-200 bg-purple-50/20">
+      <p class="text-[11px] font-bold text-purple-600 uppercase tracking-wider">In Progress</p>
+      <p class="text-2xl font-black text-purple-700 mt-1">{{ stats.in_progress }}</p>
+    </div>
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-200 bg-emerald-50/20">
+      <p class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Completed</p>
+      <p class="text-2xl font-black text-emerald-700 mt-1">{{ stats.completed }}</p>
+    </div>
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-rose-200 bg-rose-50/20">
+      <p class="text-[11px] font-bold text-rose-600 uppercase tracking-wider">Rejected</p>
+      <p class="text-2xl font-black text-rose-700 mt-1">{{ stats.rejected }}</p>
+    </div>
+  </div>
+
+  <!-- Division Distribution Badges -->
+  <div class="bg-white p-4 rounded-2xl border border-gray-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+    <div class="font-bold text-gray-500 uppercase tracking-wider">Division Breakdown:</div>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-3 py-1 bg-blue-100 text-[#1B2B6B] font-bold rounded-full">
+        Staffing Solutions: {{ division_counts.staffing }}
+      </span>
+      <span class="px-3 py-1 bg-green-100 text-[#16A34A] font-bold rounded-full">
+        Skill Academy: {{ division_counts.academy }}
+      </span>
+      <span class="px-3 py-1 bg-amber-100 text-[#D97706] font-bold rounded-full">
+        Maintenance Services: {{ division_counts.maintenance }}
+      </span>
+      <span class="px-3 py-1 bg-gray-100 text-gray-700 font-bold rounded-full">
+        General Enquiries: {{ division_counts.general }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Filters & Search Form -->
+  <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+    <form method="get" action="{% url 'submissions:dashboard' %}" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 items-end">
+      
+      <!-- Query Search -->
+      <div class="lg:col-span-2">
+        <label class="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">Search Keyword</label>
+        <input type="text" name="q" value="{{ query }}" placeholder="Name, Phone, Email, Ref#..." class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:ring-1 focus:ring-navy outline-none">
+      </div>
+
+      <!-- Division Filter -->
+      <div>
+        <label class="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">Division</label>
+        <select name="division" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:ring-1 focus:ring-navy outline-none bg-white">
+          <option value="">All Divisions</option>
+          {% for val, label in division_choices %}
+          <option value="{{ val }}" {% if division_filter == val %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Type Filter -->
+      <div>
+        <label class="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">Type</label>
+        <select name="type" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:ring-1 focus:ring-navy outline-none bg-white">
+          <option value="">All Types</option>
+          {% for val, label in type_choices %}
+          <option value="{{ val }}" {% if type_filter == val %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Status Filter -->
+      <div>
+        <label class="block text-[11px] font-bold text-gray-600 uppercase tracking-wider mb-1">Status</label>
+        <select name="status" class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:ring-1 focus:ring-navy outline-none bg-white">
+          <option value="">All Statuses</option>
+          {% for val, label in status_choices %}
+          <option value="{{ val }}" {% if status_filter == val %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-2">
+        <button type="submit" class="flex-1 py-2 bg-navy text-white font-bold text-xs uppercase rounded-lg hover:bg-navy-dark transition">
+          Filter
+        </button>
+        <a href="{% url 'submissions:dashboard' %}" class="px-3 py-2 bg-gray-100 text-gray-600 font-bold text-xs uppercase rounded-lg hover:bg-gray-200 transition text-center">
+          Reset
+        </a>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Submissions Table -->
+  <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse text-xs">
+        <thead>
+          <tr class="bg-slate-50 border-b border-gray-200 text-gray-600 uppercase tracking-wider text-[11px] font-bold">
+            <th class="py-3.5 px-4">Ref Number</th>
+            <th class="py-3.5 px-4">Division</th>
+            <th class="py-3.5 px-4">Type</th>
+            <th class="py-3.5 px-4">Contact Person</th>
+            <th class="py-3.5 px-4">Phone / Email</th>
+            <th class="py-3.5 px-4">Status</th>
+            <th class="py-3.5 px-4">Date (IST)</th>
+            <th class="py-3.5 px-4 text-right">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 text-gray-700">
+          {% for item in page_obj %}
+          <tr class="hover:bg-blue-50/40 transition">
+            <td class="py-3.5 px-4 font-mono font-bold text-navy">
+              <a href="{% url 'submissions:detail' item.id %}" class="hover:underline">
+                {{ item.reference_number }}
+              </a>
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold text-white" style="background-color: {{ item.get_division_badge_color }};">
+                {{ item.get_division_display }}
+              </span>
+            </td>
+            <td class="py-3.5 px-4 font-medium text-gray-800">
+              {{ item.get_submission_type_display }}
+            </td>
+            <td class="py-3.5 px-4">
+              <p class="font-bold text-gray-900">{{ item.full_name }}</p>
+              {% if item.company_name %}
+              <p class="text-[11px] text-gray-500 font-medium">{{ item.company_name }}</p>
+              {% endif %}
+            </td>
+            <td class="py-3.5 px-4 space-y-0.5">
+              <p class="font-mono text-gray-800">{{ item.phone }}</p>
+              <p class="text-gray-500 text-[11px]">{{ item.email }}</p>
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold text-white" style="background-color: {{ item.get_status_color }};">
+                {{ item.get_status_display }}
+              </span>
+            </td>
+            <td class="py-3.5 px-4 text-gray-500 text-[11px]">
+              {{ item.created_at|date:"d M Y, h:i A" }}
+            </td>
+            <td class="py-3.5 px-4 text-right">
+              <a href="{% url 'submissions:detail' item.id %}" class="px-3 py-1.5 bg-slate-100 hover:bg-navy hover:text-white text-navy font-bold rounded-lg transition text-[11px]">
+                Inspect →
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="8" class="py-12 text-center text-gray-400 text-sm">
+              No submissions match the current filters or query.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <div class="px-6 py-4 bg-slate-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-600">
+      <div>
+        Showing page <strong class="font-bold text-gray-900">{{ page_obj.number }}</strong> of <strong class="font-bold text-gray-900">{{ page_obj.paginator.num_pages }}</strong> (Total: {{ page_obj.paginator.count }} records)
+      </div>
+      <div class="flex space-x-2">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}&division={{ division_filter }}&status={{ status_filter }}" class="px-3 py-1.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 font-bold">
+          ← Previous
+        </a>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&q={{ query }}&division={{ division_filter }}&status={{ status_filter }}" class="px-3 py-1.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 font-bold">
+          Next →
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

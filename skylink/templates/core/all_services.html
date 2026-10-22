@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Services — Skylink Group of Companies{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-[#0F1A44] to-[#1B2B6B] text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-xs font-bold text-[#C9A227] tracking-widest uppercase bg-white/10 px-3.5 py-1 rounded-full inline-block mb-3">
+        Comprehensive Solutions
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight">
+        Corporate Services Directory
+      </h1>
+      <p class="mt-4 text-gray-200 text-base leading-relaxed">
+        Explore our comprehensive range of specialized offerings across Recruitment, Vocational Education, and Facility Maintenance.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- Division 1: Staffing Solutions -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-100">
+        <div>
+          <span class="text-xs font-bold text-[#1B2B6B] uppercase tracking-wider bg-blue-100 px-3 py-1 rounded-full">Division 01</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy mt-2">Skylink Staffing Solutions Pvt. Ltd.</h2>
+          <p class="text-xs text-gray-400 font-bold uppercase mt-1">Right People | Right Skills | Better Future</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="{% url 'staffing:employer_enquiry' %}" class="px-5 py-2.5 bg-navy text-white text-xs font-bold uppercase rounded-lg hover:bg-navy-dark transition">Employer Enquiry</a>
+          <a href="{% url 'staffing:job_application' %}" class="px-5 py-2.5 bg-blue-50 text-navy text-xs font-bold uppercase rounded-lg hover:bg-blue-100 transition">Candidate Apply</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-5 bg-slate-50 rounded-2xl border border-gray-100">
+          <h3 class="font-bold text-navy text-base mb-2">Gulf Manpower Recruitment</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Overseas sourcing for UAE, Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain across all technical and civil categories.</p>
+        </div>
+        <div class="p-5 bg-slate-50 rounded-2xl border border-gray-100">
+          <h3 class="font-bold text-navy text-base mb-2">Skilled & Unskilled Staffing</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Mass and niche recruitment of electricians, HVAC mechanics, welders, drivers, cooks, healthcare assistants and cleaners.</p>
+        </div>
+        <div class="p-5 bg-slate-50 rounded-2xl border border-gray-100">
+          <h3 class="font-bold text-navy text-base mb-2">Recruitment Documentation</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">End-to-end visa paperwork, trade testing, GAMCA medical clearance coordination, and immigration compliance support.</p>
+        </div>
+        <div class="p-5 bg-slate-50 rounded-2xl border border-gray-100">
+          <h3 class="font-bold text-navy text-base mb-2">HR Consulting & Payroll</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Comprehensive talent mapping, contract staffing, client site workforce management, and statutory HR guidance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Division 2: Skill Academy -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-100">
+        <div>
+          <span class="text-xs font-bold text-[#16A34A] uppercase tracking-wider bg-green-100 px-3 py-1 rounded-full">Division 02</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy mt-2">Skylink Skill Academy</h2>
+          <p class="text-xs text-gray-400 font-bold uppercase mt-1">Learn | Build | Grow</p>
+        </div>
+        <div>
+          <a href="{% url 'academy:course_admission' %}" class="px-5 py-2.5 bg-academy text-white text-xs font-bold uppercase rounded-lg hover:bg-academy-dark transition">Course Admission</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-5 bg-green-50/40 rounded-2xl border border-green-100">
+          <h3 class="font-bold text-academy-dark text-base mb-2">Electrician Training</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Residential wiring, single & three-phase circuit breakers, industrial control panels, and motor control installations.</p>
+        </div>
+        <div class="p-5 bg-green-50/40 rounded-2xl border border-green-100">
+          <h3 class="font-bold text-academy-dark text-base mb-2">AC & Refrigeration Training</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Split, cassette & window AC servicing, inverter PCB troubleshooting, leak testing, brazing, and refrigerant recovery.</p>
+        </div>
+        <div class="p-5 bg-green-50/40 rounded-2xl border border-green-100">
+          <h3 class="font-bold text-academy-dark text-base mb-2">Plumbing & Pipe Fitting</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Sanitary installations, PPR/CPVC pipe jointing, pressure testing, drainage slope design, and pump station setups.</p>
+        </div>
+        <div class="p-5 bg-green-50/40 rounded-2xl border border-green-100">
+          <h3 class="font-bold text-academy-dark text-base mb-2">HSE Industrial Safety</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">OSHA / International HSE protocols, hazard identification, fire safety drills, PPE compliance, and first aid response.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Division 3: Maintenance Services -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-gray-200">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-100">
+        <div>
+          <span class="text-xs font-bold text-[#D97706] uppercase tracking-wider bg-amber-100 px-3 py-1 rounded-full">Division 03</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy mt-2">Skylink Maintenance Services</h2>
+          <p class="text-xs text-gray-400 font-bold uppercase mt-1">Your Property | Our Responsibility</p>
+        </div>
+        <div>
+          <a href="{% url 'maintenance:service_request' %}" class="px-5 py-2.5 bg-maintenance text-white text-xs font-bold uppercase rounded-lg hover:bg-maintenance-dark transition">Book Service Call</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-5 bg-amber-50/40 rounded-2xl border border-amber-100">
+          <h3 class="font-bold text-amber-900 text-base mb-2">Electrical Maintenance</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Short circuit repairs, distribution board rewiring, generator changeover switchgear, and safety load balancing.</p>
+        </div>
+        <div class="p-5 bg-amber-50/40 rounded-2xl border border-amber-100">
+          <h3 class="font-bold text-amber-900 text-base mb-2">AC & HVAC Care</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Jet-pump chemical wash, compressor diagnostics, cooling coil repairs, duct inspection, and seasonal preventive AMC.</p>
+        </div>
+        <div class="p-5 bg-amber-50/40 rounded-2xl border border-amber-100">
+          <h3 class="font-bold text-amber-900 text-base mb-2">Plumbing & Handyman</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Concealed leak detection, bathroom fixture overhaul, RO water system repairs, carpentry repairs, and lock replacements.</p>
+        </div>
+        <div class="p-5 bg-amber-50/40 rounded-2xl border border-amber-100">
+          <h3 class="font-bold text-amber-900 text-base mb-2">Facility AMC Contracts</h3>
+          <p class="text-xs text-gray-600 leading-relaxed">Turnkey maintenance for commercial complexes, hospitals, schools, and apartment societies with dedicated on-call technicians.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Careers & Job Application — Skylink Staffing Solutions{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-[#0F1A44] to-[#1B2B6B] text-white py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-xs font-bold text-[#C9A227] tracking-widest uppercase bg-white/10 px-3.5 py-1 rounded-full inline-block mb-3">
+        Candidate Portal • Overseas & Domestic Placement
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight">
+        Apply for Skilled & Technical Jobs
+      </h1>
+      <p class="mt-4 text-gray-200 text-sm sm:text-base leading-relaxed">
+        Submit your trade qualifications and resume to be considered for verified hiring drives in Saudi Arabia, UAE, Qatar, and major Indian industrial corridors.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="py-16 bg-slate-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-gray-200">
+      
+      <div class="mb-8 pb-6 border-b border-gray-100 flex items-center justify-between">
+        <div>
+          <span class="text-xs font-bold text-[#1B2B6B] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">Candidate Registration</span>
+          <h2 class="text-2xl font-black text-navy mt-2">Job Application Form</h2>
+        </div>
+        <div class="text-right hidden sm:block">
+          <p class="text-[11px] text-gray-400 font-semibold uppercase">Candidate Desk</p>
+          <p class="text-xs font-bold text-navy">{{ business_phone1 }}</p>
+        </div>
+      </div>
+
+      <form method="post" action="{% url 'staffing:job_application' %}" enctype="multipart/form-data" class="space-y-6" data-prevent-double-submit>
+        {% csrf_token %}
+        {{ form.website }} <!-- Honeypot -->
+
+        {% if form.non_field_errors %}
+        <div class="p-4 bg-rose-50 border border-rose-200 text-rose-800 rounded-xl text-xs font-medium space-y-1">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Row 1: Name & Phone -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Full Name (as per ID) *</label>
+            {{ form.full_name }}
+            {% if form.full_name.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.full_name.errors.0 }}</p>
+            {% endif %}
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Mobile / WhatsApp Number *</label>
+            {{ form.phone }}
+            {% if form.phone.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.phone.errors.0 }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Row 2: Email & City/State -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Email Address *</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.email.errors.0 }}</p>
+            {% endif %}
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Current City & State *</label>
+            {{ form.city_state }}
+            {% if form.city_state.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.city_state.errors.0 }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Row 3: Trade & Experience -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Job Role / Trade Specialty *</label>
+            {{ form.job_role }}
+            {% if form.job_role.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.job_role.errors.0 }}</p>
+            {% endif %}
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Years of Relevant Experience *</label>
+            {{ form.experience }}
+            {% if form.experience.errors %}
+              <p class="text-rose-600 text-xs mt-1">{{ form.experience.errors.0 }}</p>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Row 4: Preferred Location -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Preferred Work Location</label>
+          {{ form.preferred_location }}
+        </div>
+
+        <!-- Row 5: Skills & Highlights -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Skills & Previous Work Highlights *</label>
+          {{ form.skills }}
+          {% if form.skills.errors %}
+            <p class="text-rose-600 text-xs mt-1">{{ form.skills.errors.0 }}</p>
+          {% endif %}
+        </div>
+
+        <!-- Row 6: Resume Upload -->
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Upload Resume / CV (PDF or Word, max 5MB)</label>
+          {{ form.resume }}
+          {% if form.resume.errors %}
+            <p class="text-rose-600 text-xs mt-1">{{ form.resume.errors.0 }}</p>
+          {% endif %}
+          <p class="text-[11px] text-gray-400 mt-1">If you don't have a resume ready, simply describe your skills in the box above.</p>
+        </div>
+
+        <!-- Privacy Acknowledgement -->
+        <div class="flex items-start space-x-2 pt-2">
+          <div class="flex items-center h-5">
+            {{ form.privacy_consent }}
+          </div>
+          <label class="text-xs text-gray-600">
+            I confirm that the submitted details are accurate, and I agree to be contacted for client interviews and trade testing.
+          </label>
+        </div>
+        {% if form.privacy_consent.errors %}
+          <p class="text-rose-600 text-xs">{{ form.privacy_consent.errors.0 }}</p>
+        {% endif %}
+
+        <div class="pt-4">
+          <button type="submit" class="w-full py-4 bg-[#1B2B6B] hover:bg-[#121E4B] text-white font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg transition flex items-center justify-center">
+            Submit Candidate Application
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Skylink Staffing Solutions Pvt. Ltd. — Manpower Recruitment & Overseas Placement{% endblock %}
+
+{% block content %}
+<!-- Staffing Hero Banner -->
+<div class="bg-gradient-to-r from-[#0F1A44] via-[#1B2B6B] to-[#121E4B] text-white py-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 space-y-4">
+        <div class="inline-flex items-center space-x-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-1 text-xs font-bold uppercase text-blue-200">
+          Corporate Manpower Division
+        </div>
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          Skylink Staffing Solutions <span class="text-xs sm:text-sm font-semibold text-rose-400 align-super">Pvt. Ltd.</span>
+        </h1>
+        <p class="text-[#C9A227] font-bold tracking-widest uppercase text-sm sm:text-base">
+          Right People | Right Skills | Better Future
+        </p>
+        <p class="text-gray-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+          Delivering international and domestic human resource solutions, technical trade testing, medical clearance, and overseas placement for leading enterprises in the Gulf, Middle East, and across India.
+        </p>
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="{% url 'staffing:employer_enquiry' %}" class="px-6 py-3.5 bg-[#C9A227] hover:bg-[#B58E1B] text-navy-dark font-black text-xs uppercase tracking-wider rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
+            Submit Employer Requirement
+          </a>
+          <a href="{% url 'staffing:job_application' %}" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition">
+            Apply for Overseas & Domestic Jobs
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-xs space-y-3">
+          <p class="font-bold text-[#C9A227] uppercase tracking-wider">Entity Verification</p>
+          <p class="text-gray-300">Corporate Identity Number (CIN):</p>
+          <p class="font-mono text-white text-sm font-bold bg-black/30 p-2 rounded-lg">{{ cin }}</p>
+          <p class="text-gray-300">Managing Director: <strong class="text-white">{{ md_name }}</strong></p>
+          <p class="text-gray-300">Head Office: <strong class="text-white">{{ head_office }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed Services Grid -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-xs font-bold text-[#1B2B6B] uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">Recruitment Services</span>
+      <h2 class="text-3xl font-extrabold text-navy mt-2">Comprehensive Workforce Capabilities</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">01</div>
+        <h3 class="text-xl font-bold text-navy">Gulf Manpower Recruitment</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Proven deployment capability to Saudi Arabia, UAE, Qatar, Oman, Kuwait, and Bahrain. Managing sourcing, visa endorsements, and pre-departure orientations.
+        </p>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">02</div>
+        <h3 class="text-xl font-bold text-navy">Skilled Technical Trades</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Recruitment of certified Electricians, HVAC mechanics, Welders (6G/TIG/MIG), Pipe Fitters, Plumbers, Machinists, and Heavy Equipment Operators.
+        </p>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">03</div>
+        <h3 class="text-xl font-bold text-navy">Civil & Construction Labor</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Turnkey staffing for high-rise infrastructure, industrial projects, and roads. Supplying masons, steel fixers, carpenters, painters, and general labor.
+        </p>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">04</div>
+        <h3 class="text-xl font-bold text-navy">Hospitality & Facility Staff</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Chefs, line cooks, stewards, housekeeping supervisors, industrial cleaners, security personnel, and facility caretakers.
+        </p>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">05</div>
+        <h3 class="text-xl font-bold text-navy">Healthcare & Caregivers</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Qualified nurses, medical technicians, patient care assistants, and elderly care specialists for hospitals and homecare organizations.
+        </p>
+      </div>
+
+      <div class="p-8 bg-slate-50 rounded-2xl border border-gray-100 space-y-3 hover:shadow-md transition">
+        <div class="w-12 h-12 bg-blue-100 text-navy rounded-xl flex items-center justify-center font-bold text-lg">06</div>
+        <h3 class="text-xl font-bold text-navy">Trade Testing & Compliance</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          Comprehensive practical assessments at our own facility in Gopalganj, GAMCA medical liaison, police clearances, and contract signing.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Call to action block -->
+<section class="py-16 bg-slate-50 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy">Are You an Employer Seeking Reliable Workforce?</h2>
+    <p class="text-sm text-gray-600 max-w-xl mx-auto">
+      Submit your required trades, headcounts, and project locations. Our corporate recruiters will deliver screened candidate dossiers within 48 hours.
+    </p>
+    <div class="pt-2">
+      <a href="{% url 'staffing:employer_enquiry' %}" class="px-8 py-4 bg-navy hover:bg-navy-dark text-white font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-lg transition">
+        Initiate Employer Enquiry
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

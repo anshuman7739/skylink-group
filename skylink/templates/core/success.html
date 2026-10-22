@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} — Skylink Group{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-slate-50 min-h-[70vh] flex items-center">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 text-center relative overflow-hidden">
+      
+      <!-- Top decorative strip -->
+      <div class="absolute top-0 inset-x-0 h-3 {% if division == 'academy' %}bg-gradient-to-r from-emerald-500 to-green-600{% elif division == 'maintenance' %}bg-gradient-to-r from-amber-500 to-yellow-600{% else %}bg-gradient-to-r from-blue-700 to-navy{% endif %}"></div>
+
+      <!-- Success Check Icon -->
+      <div class="w-20 h-20 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 shadow-inner">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+
+      <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase bg-emerald-50 px-3 py-1 rounded-full inline-block mb-3">
+        ✓ Database Record Confirmed
+      </span>
+
+      <h1 class="text-2xl sm:text-3xl font-black text-navy mb-3">
+        {{ title }}
+      </h1>
+
+      <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto mb-8">
+        {{ message }}
+      </p>
+
+      <!-- Unique Reference Card -->
+      <div class="bg-slate-50 border-2 border-dashed border-gray-200 rounded-2xl p-6 max-w-md mx-auto mb-8 text-center">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Your Tracking Reference Number</p>
+        <p class="text-2xl sm:text-3xl font-mono font-black text-navy select-all tracking-wider">
+          {{ reference }}
+        </p>
+        <p class="text-[11px] text-gray-400 mt-2">
+          Please quote this reference number during all future communication with our office.
+        </p>
+      </div>
+
+      <!-- Direct Assistance info -->
+      <div class="text-xs text-gray-500 space-y-1 mb-8 pt-2">
+        <p>Helpline: <strong class="text-gray-800">{{ business_phone1 }}</strong> / <strong class="text-gray-800">{{ business_phone2 }}</strong></p>
+        <p>Support Email: <strong class="text-gray-800">{{ business_email }}</strong></p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="{% url 'core:home' %}" class="px-6 py-3 bg-navy hover:bg-navy-dark text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow">
+          Return to Homepage
+        </a>
+        <a href="{% url 'core:services' %}" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs uppercase tracking-wider rounded-xl transition">
+          Explore Other Services
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

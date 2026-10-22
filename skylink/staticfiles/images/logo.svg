@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" fill="none" class="w-auto h-full">
+  <!-- Geometric Hummingbird / SSS Symbol -->
+  <g transform="translate(10, 10)">
+    <!-- Wings Upper -->
+    <path d="M 50 15 L 75 0 L 60 30 Z" fill="#0284C7"/>
+    <path d="M 60 30 L 85 18 L 68 45 Z" fill="#0D9488"/>
+    <path d="M 68 45 L 95 35 L 72 60 Z" fill="#10B981"/>
+    
+    <!-- Wings Back -->
+    <path d="M 50 15 L 25 35 L 42 42 Z" fill="#0369A1"/>
+    <path d="M 42 42 L 18 55 L 38 60 Z" fill="#0F766E"/>
+    <path d="M 38 60 L 12 75 L 35 78 Z" fill="#047857"/>
+    
+    <!-- Body Core -->
+    <polygon points="50,15 68,45 55,70 42,42" fill="#06B6D4"/>
+    <polygon points="55,70 72,60 85,80 65,95" fill="#14B8A6"/>
+    <polygon points="55,70 65,95 45,90 38,60" fill="#10B981"/>
+    
+    <!-- Head and Beak -->
+    <polygon points="72,60 88,52 82,68" fill="#059669"/>
+    <polygon points="88,52 105,48 85,58" fill="#047857"/>
+    <!-- Eye dot -->
+    <circle cx="80" cy="58" r="2.5" fill="#FFFFFF"/>
+    
+    <!-- SSS monogram -->
+    <text x="80" y="24" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#10B981" letter-spacing="1">SSS</text>
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(145, 20)">
+    <text x="0" y="48" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="48" fill="#1B2B6B" letter-spacing="2">SKYLINK</text>
+    <text x="2" y="74" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" fill="#C9A227" letter-spacing="4">GROUP OF COMPANIES</text>
+    <text x="2" y="92" font-family="sans-serif" font-weight="600" font-size="10" fill="#64748B" letter-spacing="1.5">STAFFING  •  SKILL ACADEMY  •  MAINTENANCE</text>
+  </g>
+</svg>

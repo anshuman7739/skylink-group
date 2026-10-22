@@ -1,0 +1,90 @@
+{% extends 'admin_custom/base_admin.html' %}
+{% load static %}
+
+{% block title %}System Settings & Configuration — Skylink Group{% endblock %}
+
+{% block content %}
+<div class="space-y-8 max-w-5xl mx-auto">
+  
+  <div>
+    <h1 class="text-2xl font-black text-navy">Corporate & System Configuration</h1>
+    <p class="text-xs text-gray-500 mt-1">Review operational environment variables, verified legal entity details, and mail relay status.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <!-- Verified Entity Details -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+      <h2 class="text-sm font-bold text-navy uppercase tracking-wider pb-2 border-b border-gray-100">
+        Verified Legal & Corporate Entity
+      </h2>
+      <dl class="space-y-3 text-xs">
+        <div>
+          <dt class="text-gray-400 font-medium">Company Name:</dt>
+          <dd class="font-bold text-gray-900 mt-0.5">Skylink Staffing Solutions Pvt. Ltd.</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Corporate Identification Number (CIN):</dt>
+          <dd class="font-mono font-bold text-navy mt-0.5">{{ cin }}</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Managing Director:</dt>
+          <dd class="font-bold text-gray-900 mt-0.5">{{ md_name }}</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Primary Contact Numbers:</dt>
+          <dd class="font-bold font-mono text-gray-900 mt-0.5">{{ business_phone1 }} / {{ business_phone2 }}</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Official Email:</dt>
+          <dd class="font-bold text-gray-900 mt-0.5">{{ business_email }}</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Head Office:</dt>
+          <dd class="text-gray-700 mt-0.5">{{ head_office }}</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Branch Office:</dt>
+          <dd class="text-gray-700 mt-0.5">{{ business_address }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Technical Infrastructure -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 space-y-4">
+      <h2 class="text-sm font-bold text-navy uppercase tracking-wider pb-2 border-b border-gray-100">
+        Database & Environment Health
+      </h2>
+      <dl class="space-y-3 text-xs">
+        <div>
+          <dt class="text-gray-400 font-medium">Database Engine:</dt>
+          <dd class="font-mono font-bold text-emerald-700 mt-0.5">MySQL 8.x (via PyMySQL + Django ORM)</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Django Version:</dt>
+          <dd class="font-mono text-gray-800 mt-0.5">Django 5.2</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Email Dispatch Backend:</dt>
+          <dd class="font-mono text-gray-800 mt-0.5">django.core.mail.backends.smtp.EmailBackend</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Allowed File Uploads:</dt>
+          <dd class="text-gray-800 mt-0.5">Resumes: PDF, DOC, DOCX (Max 5MB) | Maintenance: Images, PDF (Max 8MB)</dd>
+        </div>
+        <div>
+          <dt class="text-gray-400 font-medium">Security Configurations:</dt>
+          <dd class="text-gray-800 mt-0.5">CSRF Token Active • XSS Protection • Honeypot Active • SQL Injection Shield via ORM</dd>
+        </div>
+        <div class="pt-2">
+          <a href="/admin/" target="_blank" class="block text-center w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-navy font-bold text-xs uppercase rounded-xl transition">
+            Launch Django Superuser Admin ↗
+          </a>
+        </div>
+      </dl>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

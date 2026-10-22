@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us — Skylink Group of Companies{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="bg-gradient-to-r from-[#0F1A44] to-[#1B2B6B] text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <span class="text-xs font-bold text-[#C9A227] tracking-widest uppercase bg-white/10 px-3.5 py-1 rounded-full inline-block mb-3">
+        About Skylink Group
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight">
+        Building Teams, Upskilling India & Securing Properties
+      </h1>
+      <p class="mt-4 text-gray-200 text-base leading-relaxed">
+        Discover the mission, leadership, and divisions that drive one of Bihar's fastest-growing corporate services and manpower groups.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Main Story -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy">
+          Our Foundation & Philosophy
+        </h2>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+          Headquartered in Gopalganj, Bihar, <strong>Skylink Group of Companies</strong> was established to address two critical challenges: connecting talented workers and craftsmen with verified, well-paying employers worldwide, and providing reliable technical maintenance to households and businesses.
+        </p>
+        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+          Our registered entity, <strong class="text-navy">Skylink Staffing Solutions Pvt. Ltd.</strong> (CIN: <span class="font-mono text-gray-700">{{ cin }}</span>), functions in strict adherence to statutory manpower guidelines. Together with <strong class="text-academy">Skylink Skill Academy</strong> and <strong class="text-maintenance">Skylink Maintenance Services</strong>, we deliver end-to-end reliability.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 bg-slate-50 border-l-4 border-navy rounded-r-lg">
+            <h4 class="font-bold text-navy text-sm">Our Vision</h4>
+            <p class="text-xs text-gray-600 mt-1">To become India's foremost trusted partner in ethical workforce mobility, technical skill enhancement, and facility management.</p>
+          </div>
+          <div class="p-4 bg-slate-50 border-l-4 border-gold rounded-r-lg">
+            <h4 class="font-bold text-navy text-sm">Our Mission</h4>
+            <p class="text-xs text-gray-600 mt-1">Empowering candidates with real-world skills, fulfilling global manpower requirements with integrity, and delivering quality maintenance at honest pricing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+          <h3 class="text-lg font-bold text-navy border-b border-gray-200 pb-3">Corporate Registration Details</h3>
+          <dl class="space-y-3 text-xs">
+            <div class="flex justify-between py-1 border-b border-gray-100">
+              <dt class="text-gray-500 font-medium">Company Name:</dt>
+              <dd class="text-gray-900 font-bold text-right">Skylink Staffing Solutions Pvt. Ltd.</dd>
+            </div>
+            <div class="flex justify-between py-1 border-b border-gray-100">
+              <dt class="text-gray-500 font-medium">CIN:</dt>
+              <dd class="text-navy font-mono font-bold">{{ cin }}</dd>
+            </div>
+            <div class="flex justify-between py-1 border-b border-gray-100">
+              <dt class="text-gray-500 font-medium">Managing Director:</dt>
+              <dd class="text-gray-900 font-bold">{{ md_name }}</dd>
+            </div>
+            <div class="flex justify-between py-1 border-b border-gray-100">
+              <dt class="text-gray-500 font-medium">Headquarters:</dt>
+              <dd class="text-gray-900 font-medium text-right">Gopalganj, Bihar - 841428</dd>
+            </div>
+            <div class="flex justify-between py-1">
+              <dt class="text-gray-500 font-medium">Primary Domain:</dt>
+              <dd class="text-blue-600 font-medium">{{ business_website }}</dd>
+            </div>
+          </dl>
+          <div class="pt-2">
+            <a href="{% url 'core:contact' %}" class="block text-center w-full py-2.5 bg-navy text-white font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-navy-dark transition">
+              Get in Touch with Corporate Office
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership Section -->
+    <div class="pt-8 border-t border-gray-100">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-[#C9A227] tracking-widest uppercase">Executive Leadership</span>
+        <h2 class="text-3xl font-extrabold text-navy-dark mt-2">Managing Director's Message</h2>
+      </div>
+
+      <div class="bg-gradient-to-r from-blue-50/50 via-white to-amber-50/40 p-8 sm:p-12 rounded-3xl border border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-4 text-center md:text-left">
+            <div class="w-32 h-32 mx-auto md:mx-0 rounded-2xl bg-gradient-to-br from-navy to-[#0F1A44] flex items-center justify-center text-white text-3xl font-black shadow-lg">
+              EA
+            </div>
+            <h3 class="text-xl font-bold text-navy mt-4">{{ md_name }}</h3>
+            <p class="text-xs text-[#C9A227] font-bold uppercase tracking-wider">{{ md_title }}</p>
+            <p class="text-xs text-gray-500 mt-1">Skylink Group of Companies</p>
+          </div>
+          <div class="md:col-span-8 space-y-4 text-sm text-gray-700 leading-relaxed italic border-l-0 md:border-l-2 md:border-gray-200 md:pl-8">
+            <p>
+              "At Skylink, we measure success not merely by numbers deployed or projects closed, but by the tangible impact we create in people's livelihoods. In a rapidly modernizing economy, skilled hands and honest leadership are the true cornerstones of prosperity."
+            </p>
+            <p>
+              "Whether a candidate is walking into our Skill Academy seeking a sustainable career, an employer is looking for dependable manpower, or a homeowner needs reliable electrical maintenance, they find the same unwavering commitment to quality and transparency under our roof."
+            </p>
+            <p class="not-italic font-bold text-navy pt-2">
+              — Er. Mahtab Alam (Guddu), Managing Director
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
