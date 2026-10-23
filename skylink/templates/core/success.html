@@ -49,6 +49,12 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap justify-center gap-4">
+        <a href="{% url 'core:track_status_detail' ref=reference %}" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Track Status Online
+        </a>
         <a href="{% url 'core:home' %}" class="px-6 py-3 bg-navy hover:bg-navy-dark text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow">
           Return to Homepage
         </a>

@@ -95,6 +95,35 @@ def contact_success(request, ref):
     })
 
 
+def track_status(request, ref=None):
+    query_ref = (ref or request.GET.get('ref', '')).strip().upper()
+    submission = None
+    not_found = False
+    detail = None
+
+    if query_ref:
+        submission = Submission.objects.filter(reference_number__iexact=query_ref).first()
+        if submission:
+            stype = submission.submission_type
+            if stype == 'maintenance_request':
+                detail = getattr(submission, 'maintenance_request', None)
+            elif stype == 'job_application':
+                detail = getattr(submission, 'candidate_application', None)
+            elif stype == 'course_admission':
+                detail = getattr(submission, 'course_admission', None)
+            elif stype == 'employer_enquiry':
+                detail = getattr(submission, 'employer_enquiry', None)
+        else:
+            not_found = True
+
+    return render(request, 'core/track_status.html', {
+        'query_ref': query_ref,
+        'submission': submission,
+        'detail': detail,
+        'not_found': not_found,
+    })
+
+
 def privacy_policy(request):
     return render(request, 'core/privacy_policy.html')
 
